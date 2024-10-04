@@ -16,3 +16,38 @@ long document understanding in resource-constrained environments. Our
 approach paves the way for more efficient processing of complex documents
 across various fields. All code, datasets and model checkpoints are available at
 https://github.com/MambaRetriever/MambaRetriever
+
+## Setup
+We highly recommend creating a new conda environment first:
+```
+conda create -n mamba_retriever python=3.10.14
+conda activate mamba_retriever
+```
+
+Then, run the following in your terminal:
+```
+git clone https://github.com/state-spaces/mamba.git
+cd mamba
+conda install cudatoolkit==11.8 -c nvidia
+pip install pytz==2024.1
+pip install scipy==1.14.0
+pip3 install torch==2.1.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install accelerate -U
+pip install .
+pip install matplotlib==3.9.1
+pip install tiktoken==0.7.0
+pip install wandb==0.17.0
+```
+
+Next, download and install the following two files.
+```
+mamba_ssm-2.2.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+```
+from https://github.com/state-spaces/mamba/releases and https://github.com/Dao-AILab/causal-conv1d/releases
+
+You can install them using
+```
+pip install mamba_ssm-2.2.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+pip install causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+```
