@@ -48,3 +48,12 @@ You can install them using
 pip install mamba_ssm-2.2.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 pip install causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 ```
+
+## Model Checkpoints
+Our finetuned models are uploaded to [Hugging Face](https://huggingface.co/MambaRetriever): `MambaRetriever/mambaretriever-130m`, `MambaRetriever/mambaretriever-1.3b`.
+
+Our evaluation script will automatically load these checkpoints.
+
+## Evaluation
+To run evaluation of our model checkpoints, use `evaluation.sh`
+You can change `MODEL` to either `mamba2-130m` or `mamba2-1.3b` depending on which checkpoint to evaluate on.
