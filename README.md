@@ -39,12 +39,11 @@ pip install tiktoken==0.7.0
 pip install wandb==0.17.0
 ```
 
-Next, download and install the following two files.
+Next, download and install the following two files from https://github.com/state-spaces/mamba/releases and https://github.com/Dao-AILab/causal-conv1d/releases:
 ```
 mamba_ssm-2.2.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 ```
-from https://github.com/state-spaces/mamba/releases and https://github.com/Dao-AILab/causal-conv1d/releases
 
 You can install them using
 ```
