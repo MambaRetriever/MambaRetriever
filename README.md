@@ -21,7 +21,9 @@ https://github.com/MambaRetriever/MambaRetriever
 Our dataset is freely and publicly available at [zenodo](https://doi.org/10.5281/zenodo.13892030).
 
 Train dataset:  mambaretriever_synthetic_data.pickle
+
 Testset by categories: mamba_retriever_testset_by_categories.pickle
+
 Testset per dataset: mamba_retriever_41_testsets.pickle
 
 ## Setup
