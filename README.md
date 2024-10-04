@@ -1,5 +1,7 @@
 # TURN YOUR STATE SPACE MODEL INTO A RETRIEVER
 
+Our dataset is freely and publicly available at [zenodo](https://doi.org/10.5281/zenodo.13892030).
+
 ## Paper abstract
 We present a novel method for long document understanding, leveraging the
 Mamba architecture’s linear complexity processing capabilities. Our model, finetuned
