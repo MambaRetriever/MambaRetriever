@@ -27,16 +27,12 @@ conda activate mamba_retriever
 Then, run the following in your terminal:
 ```
 git clone https://github.com/state-spaces/mamba.git
-cd mamba
 conda install cudatoolkit==11.8 -c nvidia
-pip install pytz==2024.1
-pip install scipy==1.14.0
+pip install -r requirements.txt
 pip3 install torch==2.1.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install accelerate -U
+cd mamba
 pip install .
-pip install matplotlib==3.9.1
-pip install tiktoken==0.7.0
-pip install wandb==0.17.0
 ```
 
 Next, download and install the following two files from https://github.com/state-spaces/mamba/releases and https://github.com/Dao-AILab/causal-conv1d/releases:
