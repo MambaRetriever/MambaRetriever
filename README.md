@@ -55,5 +55,9 @@ Our finetuned models are uploaded to [Hugging Face](https://huggingface.co/Mamba
 Our evaluation script will automatically load these checkpoints.
 
 ## Evaluation
-To run evaluation of our model checkpoints, use `evaluation.sh`
-You can change `MODEL` to either `mamba2-130m` or `mamba2-1.3b` depending on which checkpoint to evaluate on.
+To run evaluation of our model checkpoints, use `evaluation.sh`.
+
+You can change variables in the script for your own needs:
+
+Set `MODEL` to either `mamba2-130m` or `mamba2-1.3b` depending on which checkpoint to evaluate on.
+Ser `EXP_NAME` to the experiment name.
