@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Example evaluation shell script.
-NUM_EPOCH=1
 MODEL='mamba2-130m'
 EXP_NAME='Example'
 
