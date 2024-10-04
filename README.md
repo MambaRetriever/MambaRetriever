@@ -1,7 +1,5 @@
 # TURN YOUR STATE SPACE MODEL INTO A RETRIEVER
 
-Our dataset is freely and publicly available at [zenodo](https://doi.org/10.5281/zenodo.13892030).
-
 ## Paper abstract
 We present a novel method for long document understanding, leveraging the
 Mamba architecture’s linear complexity processing capabilities. Our model, finetuned
@@ -18,6 +16,13 @@ long document understanding in resource-constrained environments. Our
 approach paves the way for more efficient processing of complex documents
 across various fields. All code, datasets and model checkpoints are available at
 https://github.com/MambaRetriever/MambaRetriever
+
+## Datasets
+Our dataset is freely and publicly available at [zenodo](https://doi.org/10.5281/zenodo.13892030).
+
+Train dataset:  mambaretriever_synthetic_data.pickle
+Testset by categories: mamba_retriever_testset_by_categories.pickle
+Testset per dataset: mamba_retriever_41_testsets.pickle
 
 ## Setup
 We highly recommend creating a new conda environment first:
