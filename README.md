@@ -67,8 +67,29 @@ Set `MODEL` to either `mamba2-130m` or `mamba2-1.3b` depending on which checkpoi
 
 Set `EXP_NAME` to the experiment name.
 
-Running this evaluation script will save a prediction logit file under folder `prediction_logits`, with file name `EXP_NAME`.
+Running this evaluation script will save a prediction logit file under folder `rag_pipeline/prediction_logits`, with file name `EXP_NAME`.
 
+Next, to evaluate the model performance on our benchmarks, use
+
+```
+bash run_rag.sh [retriever] [eval_data_path] [threshold] [generator] [scenario] [exp_name] [prediction_logits_path]
+```
+
+We explain the arguments as follows:
+
+* `retriever`: The retriever model to evaluate on. Choose from:
+  * `bce_ssm`: Evaluate results for mamba
+  * `gritlm`,`openai_embedding`, `bm25`, `contriever`, `dragon`: Evaluate results for corresponding models
+* `eval_data_path`: The path to the evaluation dataset
+* `threshold`: The number of sentences or chunks to retrieve
+* `scenario`: Choose from:
+  * `retrieval`: Used for RAG
+  * `full_context`: Used to evaluate LLMs given full context
+  * `random`: Random baseline
+* `exp_name`: The experiment name
+* `prediction_logits_path`: The datapath of the prediction logits.
+  * Note: The previous step would save the prediction logits under path `rag_pipeline/prediction_logits/{EXP_NAME}`. You should enter the path here corresponding to your `EXP_NAME`.
+  
 ## Training
 Our model architecture is base on code from [mamba](https://github.com/state-spaces/mamba).
 
