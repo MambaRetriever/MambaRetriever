@@ -78,7 +78,7 @@ bash run_training.sh
 
 You can change variables in the script for your own needs:
 
-Set `MODEL` to be your chosen pretrained mamba2 checkpoints from one of `mamba2-130m`, `mamba2-370m`, `mamba2-780m`, `mamba2-1.3b`, `mamba2-2.7b`.
+Set `MODEL` to be any pretrained checkpoints: `mamba2-130m`, `mamba2-370m`, `mamba2-780m`, `mamba2-1.3b`, `mamba2-2.7b`.
 
 Set `EXP_NAME` to the experiment name.
 
