@@ -58,10 +58,30 @@ Our finetuned models are uploaded to [Hugging Face](https://huggingface.co/Mamba
 Our evaluation script will automatically load these checkpoints.
 
 ## Evaluation
-To run evaluation of our model checkpoints, use `evaluation.sh`. You can change variables in the script for your own needs:
+To replicate our result and run evaluation of our model checkpoints, use
+```
+bash run_evaluation.sh
+```
+You can change variables in the script for your own needs:
 
 Set `MODEL` to either `mamba2-130m` or `mamba2-1.3b` depending on which checkpoint to evaluate on.
 
-Ser `EXP_NAME` to the experiment name.
+Set `EXP_NAME` to the experiment name.
 
+Running this evaluation script will save a prediction logit file under folder `prediction_logits`, with file name `EXP_NAME`.
 
+## Training
+To run training of mamba model, use
+```
+bash run_training.sh
+```
+
+You can change variables in the script for your own needs:
+
+Set `MODEL` to be your chosen pretrained mamba2 checkpoints from one of `mamba2-130m`, `mamba2-370m`, `mamba2-780m`, `mamba2-1.3b`, `mamba2-2.7b`.
+
+Set `EXP_NAME` to the experiment name.
+
+Set `DATA_PATH` to the training data path.
+
+The model checkpoint will be automatically saved under folder `output`.
