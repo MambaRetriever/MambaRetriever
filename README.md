@@ -70,7 +70,7 @@ Set `EXP_NAME` to the experiment name.
 Running this evaluation script will save a prediction logit file under folder `prediction_logits`, with file name `EXP_NAME`.
 
 ## Training
-To run training of mamba model, use
+To run training, use
 ```
 bash run_training.sh
 ```
