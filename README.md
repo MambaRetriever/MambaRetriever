@@ -57,14 +57,14 @@ Synthetic data generation involves three stages, each requiring prompt preparati
 
 Firstly, use
 ```
-python train_data_generation/prepare_connection_prompt_dict.py [data_path] [prompt_output_path]
+python train_data_generation/prepare_connection_prompt_dict.py --data_path [data_path] --prompt_output_path [prompt_output_path]
 ```
 * `data_path`: The path for the tokenized raw data.
 * `prompt_output_path`: The path to save the connection prompt dictionary.
 
 After LLM generation result is obtained, use
 ```
-python train_data_generation/prepare_question_prompt.py [data_path] [prompt_output_path] [connection_collected_results_path] [updated_data_output_path]
+python train_data_generation/prepare_question_prompt.py --data_path [data_path] --prompt_output_path [prompt_output_path] --connection_collected_results_path [connection_collected_results_path] --updated_data_output_path [updated_data_output_path]
 ```
 * `data_path`: The path for the tokenized raw data.
 * `prompt_output_path`: The path to save the question formulation prompt dictionary.
@@ -73,7 +73,7 @@ python train_data_generation/prepare_question_prompt.py [data_path] [prompt_outp
 
 Afterwards, use
 ```
-python train_data_generation/prepare_impsent_filter_prompt.py [updated_data_path] [prompt_output_path] [question_collected_results_path] [key2question_output_path]
+python train_data_generation/prepare_impsent_filter_prompt.py --updated_data_path [updated_data_path] --prompt_output_path [prompt_output_path] --question_collected_results_path [question_collected_results_path] --key2question_output_path [key2question_output_path]
 ```
 * `updated_data_output_path`: The path to save updated raw data, where additional keys are added for further processing.
 * `prompt_output_path`: The path to save important sentence filter prompt dictionary.
@@ -82,7 +82,7 @@ python train_data_generation/prepare_impsent_filter_prompt.py [updated_data_path
 
 Finally, run the following to obtain train data
 ```
-python train_data_generation/prepare_train_data.py 
+python train_data_generation/prepare_train_data.py --updated_data_output_path [updated_data_output_path] --impsent_collected_results_path [impsent_collected_results_path] --key2question_path [key2question_path] -- train_data_output_path [train_data_output_path]
 ```
 * `updated_data_output_path`: The path to save updated raw data.
 * `impsent_collected_results_path`: The path to the LLM generation result for important sentence filtering.
@@ -91,7 +91,7 @@ python train_data_generation/prepare_train_data.py
 
 Note, at each step, run the following for LLM generation:
 ```
-python generation/generation.py
+python generation/generation.py --prompt_path [prompt_path] --output_path [output_path] --generation_model [generation_model] --max_tokens [max_tokens]
 ```
 * `prompt_path`: The path to the prompt dictionary for generation.
 * `output_path`: The path to save the LLM generation result.
