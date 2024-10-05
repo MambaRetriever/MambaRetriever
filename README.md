@@ -51,6 +51,22 @@ pip install mamba_ssm-2.2.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.
 pip install causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 ```
 
+## Synthetic Data Generation
+
+Synthetic data generation involves three stages, each requiring prompt preparation and LLM generation. 
+
+Firstly, use
+```
+python train_data_generation/prepare_connection_prompt_dict.py [data_path] [prompt_output_path]
+```
+* `data_path`: The path for the tokenized raw data.
+* `prompt_output_path`: The path to save the connection prompt dictionary.
+
+After LLM generation result is obtained, use
+```
+python train_data_generation/prepare_question_prompt.py [data_path] [prompt_output_path] [connection_collected_results_path] [updated_data_output_path]
+```
+
 ## Model Checkpoints
 Our finetuned model checkpoints are uploaded to [Hugging Face](https://huggingface.co/MambaRetriever): `MambaRetriever/mambaretriever-130m`, `MambaRetriever/mambaretriever-1.3b`.
 
