@@ -70,6 +70,8 @@ Set `EXP_NAME` to the experiment name.
 Running this evaluation script will save a prediction logit file under folder `prediction_logits`, with file name `EXP_NAME`.
 
 ## Training
+Our model architecture is base on code from [mamba](https://github.com/state-spaces/mamba).
+
 To run training, use
 ```
 bash run_training.sh
