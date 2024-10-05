@@ -66,6 +66,38 @@ After LLM generation result is obtained, use
 ```
 python train_data_generation/prepare_question_prompt.py [data_path] [prompt_output_path] [connection_collected_results_path] [updated_data_output_path]
 ```
+* `data_path`: The path for the tokenized raw data.
+* `prompt_output_path`: The path to save the question formulation prompt dictionary.
+* `connection_collected_results_path`: The path to the LLM generation result for connection generation.
+* `updated_data_output_path`: The path to save updated raw data, where additional keys are added for further processing.
+
+Afterwards, use
+```
+python train_data_generation/prepare_impsent_filter_prompt.py [updated_data_path] [prompt_output_path] [question_collected_results_path] [key2question_output_path]
+```
+* `updated_data_output_path`: The path to save updated raw data, where additional keys are added for further processing.
+* `prompt_output_path`: The path to save important sentence filter prompt dictionary.
+* `question_collected_results_path`: The path to the LLM generation result for question formulation.
+* `key2question_output_path`: The path to save question results for each datapoint.
+
+Finally, run the following to obtain train data
+```
+python train_data_generation/prepare_train_data.py 
+```
+* `updated_data_output_path`: The path to save updated raw data.
+* `impsent_collected_results_path`: The path to the LLM generation result for important sentence filtering.
+* `key2question_path`: The path to the saved question results for each datapoint.
+* `train_data_output_path`: The path to save the training data.
+
+Note, at each step, run the following for LLM generation:
+```
+python generation/generation.py
+```
+* `prompt_path`: The path to the prompt dictionary for generation.
+* `output_path`: The path to save the LLM generation result.
+* `generation_model`: The model used for generation.
+* `max_tokens`: The maximum output token for the LLM generation.
+
 
 ## Model Checkpoints
 Our finetuned model checkpoints are uploaded to [Hugging Face](https://huggingface.co/MambaRetriever): `MambaRetriever/mambaretriever-130m`, `MambaRetriever/mambaretriever-1.3b`.
