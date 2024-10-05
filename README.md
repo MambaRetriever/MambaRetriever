@@ -14,8 +14,7 @@ results, evaluated on 41 QA benchmarks drawn from financial reports, government
 documents, and creative works, demonstrate our model’s potential for improving
 long document understanding in resource-constrained environments. Our
 approach paves the way for more efficient processing of complex documents
-across various fields. All code, datasets and model checkpoints are available at
-https://github.com/MambaRetriever/MambaRetriever
+across various fields.
 
 ## Datasets
 Our dataset is freely and publicly available at [zenodo](https://doi.org/10.5281/zenodo.13892030).
