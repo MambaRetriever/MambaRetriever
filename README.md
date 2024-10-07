@@ -17,7 +17,7 @@ approach paves the way for more efficient processing of complex documents
 across various fields.
 
 ## Datasets
-Our training and evaluation dataset is freely and publicly available at [zenodo](https://doi.org/10.5281/zenodo.13892030).
+Our training and evaluation dataset is freely and publicly available at [zenodo](https://zenodo.org/records/13900121?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjBjN2I2MGNlLTRkYzgtNDJmNS1iYTQ1LWVjNjUyMjFlMzhjMCIsImRhdGEiOnt9LCJyYW5kb20iOiI5MGNhMTViMDMyNTRjY2U2ZTBlNjVlNDJmODcxM2JlYyJ9.6Nwi0FdA35kHBYiAndany3O47vDLGBbvj7M3SmASbmE_rKtJgzPyk01glzBgb-8xxwEdX5usgn4HQB6F4AIPzQ).
 
 Our train set is `mambaretriever_synthetic_data.pickle`, our test set by categories is `mamba_retriever_testset_by_categories.pickle`, and out test set by dataset is `mamba_retriever_41_testsets.pickle`
 
