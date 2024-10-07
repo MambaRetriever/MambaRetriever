@@ -112,14 +112,14 @@ The model checkpoint will be automatically saved under folder `output`.
 
 Synthetic data generation involves three stages, each requiring prompt preparation and LLM generation. 
 
-Firstly, use
+Firstly, use the following to generate a prompt dict:
 ```
 python train_data_generation/prepare_connection_prompt_dict.py --data_path [data_path] --prompt_output_path [prompt_output_path]
 ```
 * `data_path`: The path for the tokenized raw data.
 * `prompt_output_path`: The path to save the connection prompt dictionary.
 
-After LLM generation result is obtained, use
+After LLM generation result is obtained, use the following to generate the second prompt dict:
 ```
 python train_data_generation/prepare_question_prompt.py --data_path [data_path] --prompt_output_path [prompt_output_path] --connection_collected_results_path [connection_collected_results_path] --updated_data_output_path [updated_data_output_path]
 ```
@@ -128,7 +128,7 @@ python train_data_generation/prepare_question_prompt.py --data_path [data_path] 
 * `connection_collected_results_path`: The path to the LLM generation result for connection generation.
 * `updated_data_output_path`: The path to save updated raw data, where additional keys are added for further processing.
 
-Afterwards, use
+Afterwards, use the following to generate the third prompt dict:
 ```
 python train_data_generation/prepare_impsent_filter_prompt.py --updated_data_path [updated_data_path] --prompt_output_path [prompt_output_path] --question_collected_results_path [question_collected_results_path] --key2question_output_path [key2question_output_path]
 ```
