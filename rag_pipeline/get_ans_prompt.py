@@ -42,7 +42,7 @@ def create_qa_prompt(retriever, eval_data_path, threshold, scenario, generator, 
 
     if scenario == 'full_context':
 
-        assert retriever in ['gpt-4o-2024-08-06', 'Meta-Llama-3.1-8B-Instruct-Turbo'] #TODO: add in other models
+        assert retriever in ['gpt-4o-2024-08-06', 'Meta-Llama-3.1-8B-Instruct-Turbo']
 
         for benchmark_name in eval_data:
 
