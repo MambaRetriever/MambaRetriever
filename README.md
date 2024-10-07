@@ -89,7 +89,27 @@ We explain the arguments as follows:
 * `exp_name`: The experiment name
 * `prediction_logits_path`: The datapath of the prediction logits.
   * Note: The previous step would save the prediction logits under path `rag_pipeline/prediction_logits/{EXP_NAME}`. You should enter the path here corresponding to your `EXP_NAME`.
-  
+ 
+### Evaluation Data Strucutre
+```
+{
+    "benchmark_name": {
+        "datapoint_id": {
+            input_ids: list: tokenized full context,
+            full_text_sentences: list: sentence level,
+            question: string,
+            answer: list: element containing answer,
+            answer_type: either paragraph/sentence,
+            sentence_indices: list: index end of sentence indicies for input_ids
+        },
+        ...,
+        "datapoint_id": {
+            ...
+        },
+    }
+}
+```
+
 ## Training
 Our model architecture is base on code from [mamba](https://github.com/state-spaces/mamba).
 
