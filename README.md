@@ -110,7 +110,25 @@ The model checkpoint will be automatically saved under folder `output`.
 
 ## Synthetic Data Generation
 
-Synthetic data generation involves three stages, each requiring prompt preparation and LLM generation. 
+You should use the following script to tokenize raw data.
+
+`python document_tokenization.py --input_path [input_data_path] --output_path [output_data_path] --chunk_length [chunk_length]`
+
+* `input_path`: The path for raw data, it should be a key to text dictionary.
+* `output_path`: The path for output file
+* `chunk_length`: The token length of the chunk after tokenization. Choose from 2000,5000,10000 to replicate the results from the paper.
+
+You should then filter language using the following command:
+
+`python filter_language.py --input_path [input_path] --output_path [output_path] --dataset [dataset] --length_limit [length_limit] --top_limit [top_limit]
+
+* `input_path`: The path for tokenized data.
+* `output_path`: The path for the output file.
+* `dataset`: The type of the data e.g train_2k, train_5k, train_10k
+* `length_limit`: The length limit to filter out chunks less than this length limit.
+* `top_limit`: The length limit to filter out chunks greater than this length limit.
+
+The data is ready to go through the synthetic data generation steps. Synthetic data generation involves three stages, each requiring prompt preparation and LLM generation. 
 
 Firstly, use the following to generate a prompt dict:
 ```
