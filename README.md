@@ -113,7 +113,7 @@ The model checkpoint will be automatically saved under folder `output`.
 You should use the following script to tokenize raw data.
 
 ```
-python document_tokenization.py --input_path [input_data_path] --output_path [output_data_path] --chunk_length [chunk_length]
+python document_tokenization.py --input_path [input_path] --output_path [output_path] --chunk_length [chunk_length]
 ```
 
 * `input_path`: The path for raw data, it should be a key to text dictionary.
