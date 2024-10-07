@@ -112,7 +112,9 @@ The model checkpoint will be automatically saved under folder `output`.
 
 You should use the following script to tokenize raw data.
 
-`python document_tokenization.py --input_path [input_data_path] --output_path [output_data_path] --chunk_length [chunk_length]`
+```
+python document_tokenization.py --input_path [input_data_path] --output_path [output_data_path] --chunk_length [chunk_length]
+```
 
 * `input_path`: The path for raw data, it should be a key to text dictionary.
 * `output_path`: The path for output file
@@ -120,7 +122,9 @@ You should use the following script to tokenize raw data.
 
 You should then filter language using the following command:
 
-`python filter_language.py --input_path [input_path] --output_path [output_path] --dataset [dataset] --length_limit [length_limit] --top_limit [top_limit]
+```
+python filter_language.py --input_path [input_path] --output_path [output_path] --dataset [dataset] --length_limit [length_limit] --top_limit [top_limit]
+```
 
 * `input_path`: The path for tokenized data.
 * `output_path`: The path for the output file.
