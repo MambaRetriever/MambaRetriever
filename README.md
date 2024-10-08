@@ -1,6 +1,6 @@
 # TURN YOUR STATE SPACE MODEL INTO A RETRIEVER
 
-## Paper abstract
+## Paper Overview
 We present a novel method for long document understanding, leveraging the
 Mamba architecture’s linear complexity processing capabilities. Our model, finetuned
 from a Mamba language model checkpoint, processes queries in the full
