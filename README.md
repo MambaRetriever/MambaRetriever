@@ -181,7 +181,7 @@ python train_data_generation/prepare_impsent_filter_prompt.py --updated_data_pat
 * `question_collected_results_path`: The path to the LLM generation result for question formulation.
 * `key2question_output_path`: The path to save question results for each datapoint.
 
-Finally, run the following to obtain train data
+Finally, run the following to collect and obtain training data
 ```
 python train_data_generation/prepare_train_data.py --updated_data_output_path [updated_data_output_path] --impsent_collected_results_path [impsent_collected_results_path] --key2question_path [key2question_path] -- train_data_output_path [train_data_output_path]
 ```
