@@ -111,7 +111,7 @@ We explain the arguments as follows:
 ```
 
 ## Training
-Our model architecture is base on code from [mamba](https://github.com/state-spaces/mamba).
+Our model architecture is built upon [mamba](https://github.com/state-spaces/mamba).
 
 To run training, use
 ```
