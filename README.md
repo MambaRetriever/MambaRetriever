@@ -130,7 +130,7 @@ The model checkpoint will be automatically saved under folder `output`.
 
 ## Synthetic Data Generation
 
-You should use the following script to tokenize raw data.
+You should use the following script to tokenize raw data first.
 
 ```
 python document_tokenization.py --input_path [input_path] --output_path [output_path] --chunk_length [chunk_length]
@@ -140,7 +140,7 @@ python document_tokenization.py --input_path [input_path] --output_path [output_
 * `output_path`: The path for output file
 * `chunk_length`: The token length of the chunk after tokenization. Choose from 2000,5000,10000 to replicate the results from the paper.
 
-You should then filter language using the following command:
+You should then filter out non-English documents using the following command:
 
 ```
 python filter_language.py --input_path [input_path] --output_path [output_path] --dataset [dataset] --length_limit [length_limit] --top_limit [top_limit]
@@ -152,16 +152,18 @@ python filter_language.py --input_path [input_path] --output_path [output_path] 
 * `length_limit`: The length limit to filter out chunks less than this length limit.
 * `top_limit`: The length limit to filter out chunks greater than this length limit.
 
-The data is ready to go through the synthetic data generation steps. Synthetic data generation involves three stages, each requiring prompt preparation and LLM generation. 
+The data is ready to go through the synthetic data generation steps. 
 
-Firstly, use the following to generate a prompt dict:
+Synthetic data generation involves three stages, each requiring prompt preparation and LLM generation. 
+
+Firstly, use the following to generate a prompt dict for finding connections:
 ```
 python train_data_generation/prepare_connection_prompt_dict.py --data_path [data_path] --prompt_output_path [prompt_output_path]
 ```
 * `data_path`: The path for the tokenized raw data.
 * `prompt_output_path`: The path to save the connection prompt dictionary.
 
-After LLM generation result is obtained, use the following to generate the second prompt dict:
+After LLM generation result is obtained, use the following to generate the second prompt dict for generating question from connection:
 ```
 python train_data_generation/prepare_question_prompt.py --data_path [data_path] --prompt_output_path [prompt_output_path] --connection_collected_results_path [connection_collected_results_path] --updated_data_output_path [updated_data_output_path]
 ```
@@ -170,7 +172,7 @@ python train_data_generation/prepare_question_prompt.py --data_path [data_path] 
 * `connection_collected_results_path`: The path to the LLM generation result for connection generation.
 * `updated_data_output_path`: The path to save updated raw data, where additional keys are added for further processing.
 
-Afterwards, use the following to generate the third prompt dict:
+Afterwards, use the following to generate the third prompt dict for finding important sentences from question:
 ```
 python train_data_generation/prepare_impsent_filter_prompt.py --updated_data_path [updated_data_path] --prompt_output_path [prompt_output_path] --question_collected_results_path [question_collected_results_path] --key2question_output_path [key2question_output_path]
 ```
