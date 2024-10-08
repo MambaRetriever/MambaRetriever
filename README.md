@@ -17,7 +17,7 @@ approach paves the way for more efficient processing of complex documents
 across various fields.
 
 ## Datasets
-Our training and evaluation dataset is freely and publicly available at [zenodo](https://zenodo.org/records/13900121?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjBjN2I2MGNlLTRkYzgtNDJmNS1iYTQ1LWVjNjUyMjFlMzhjMCIsImRhdGEiOnt9LCJyYW5kb20iOiI5MGNhMTViMDMyNTRjY2U2ZTBlNjVlNDJmODcxM2JlYyJ9.6Nwi0FdA35kHBYiAndany3O47vDLGBbvj7M3SmASbmE_rKtJgzPyk01glzBgb-8xxwEdX5usgn4HQB6F4AIPzQ).
+Our training and evaluation dataset is freely and publicly available at [zenodo](https://zenodo.org/records/13900121?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjBjN2I2MGNlLTRkYzgtNDJmNS1iYTQ1LWVjNjUyMjFlMzhjMCIsImRhdGEiOnt9LCJyYW5kb20iOiI5MGNhMTViMDMyNTRjY2U2ZTBlNjVlNDJmODcxM2JlYyJ9.6Nwi0FdA35kHBYiAndany3O47vDLGBbvj7M3SmASbmE_rKtJgzPyk01glzBgb-8xxwEdX5usgn4HQB6F4AIPzQ) and [huggingface](https://huggingface.co/datasets/MambaRetriever/MambaRetriever).
 
 Our train set is `mambaretriever_train.jsonl`, our test set by categories is `mambaretriever_test_per_category.json`, and out test set by dataset is ` mambaretriever_test.json`
 
