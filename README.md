@@ -19,7 +19,7 @@ across various fields.
 ## Datasets
 Our training and evaluation dataset is freely and publicly available at [zenodo](https://zenodo.org/records/13900121?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjBjN2I2MGNlLTRkYzgtNDJmNS1iYTQ1LWVjNjUyMjFlMzhjMCIsImRhdGEiOnt9LCJyYW5kb20iOiI5MGNhMTViMDMyNTRjY2U2ZTBlNjVlNDJmODcxM2JlYyJ9.6Nwi0FdA35kHBYiAndany3O47vDLGBbvj7M3SmASbmE_rKtJgzPyk01glzBgb-8xxwEdX5usgn4HQB6F4AIPzQ) and [huggingface](https://huggingface.co/datasets/MambaRetriever/MambaRetriever).
 
-Our train set is `mambaretriever_train.jsonl`, our test set by categories is `mambaretriever_test_per_category.json`, and out test set by dataset is ` mambaretriever_test.json`
+Our train set is `mambaretriever_train.jsonl`, our test set by categories is `mambaretriever_test_per_category.json`, and out test set by dataset is `mambaretriever_test.json`
 
 ## Setup
 We highly recommend creating a new conda environment first:
@@ -100,7 +100,7 @@ We explain the arguments as follows:
             question: string,
             answer: list: element containing answer,
             answer_type: either paragraph/sentence,
-            sentence_indices: list: index end of sentence indicies for input_ids
+            sentence_indices: list: index end of sentence indices for input_ids
         },
         ...,
         "datapoint_id": {
