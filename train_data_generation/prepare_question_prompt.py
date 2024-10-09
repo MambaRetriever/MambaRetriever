@@ -10,6 +10,7 @@ tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
 from string import punctuation
 import re
 from math import *
+import argparse
 
 
 if __name__ == "__main__":
@@ -28,18 +29,18 @@ if __name__ == "__main__":
     print('Loading dataset')
 
     with open(args.data_path, 'rb') as f:
-        train_data = pickle.load(f)
+        synthetic_data = pickle.load(f)
         
     print('dataset loaded')
     
     
-    print(f'Length of dataset loaded: {len(train_data)}')
+    print(f'Length of dataset loaded: {len(synthetic_data)}')
     
 
     print('Obtain context')
-    for k in tqdm(train_data):
-        context = [item[0] for item in train_data[k]['tokenized_sents']]
-        train_data[k]['context'] = context
+    for k in tqdm(synthetic_data):
+        context = [item[0] for item in synthetic_data[k]['tokenized_sents']]
+        synthetic_data[k]['context'] = context
         
     with open(args.connection_collected_results_path, 'rb') as f:
         collected_results = pickle.load(f)
@@ -156,7 +157,7 @@ Connection:
             prompt_dict[str((k, selected_idx))] = myprompt
             
     print(f'Length of prompt_dict: {len(prompt_dict)}')
-    print(f'Saving prompt_dict to {output_path}')
+    print(f'Saving prompt_dict to {args.prompt_output_path}')
     with open(args.prompt_output_path, 'wb') as f:
         pickle.dump(prompt_dict, f)          
         

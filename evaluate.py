@@ -11,13 +11,11 @@ import numpy as np
 import wandb
 import torch.nn.functional as F
 import bisect
-from torch.nn.utils.rnn import pad_sequence
 from dataclasses import dataclass
 from torch.utils.data import Dataset
 from torch.optim import AdamW
 from transformers import AutoTokenizer, TrainingArguments
 from transformers import Trainer
-from transformers.optimization import get_scheduler
 from torch.optim.lr_scheduler import LambdaLR
 from mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel
 from typing import List, Optional, Any, NamedTuple, Dict, Tuple

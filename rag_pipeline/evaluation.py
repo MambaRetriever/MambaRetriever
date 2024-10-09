@@ -8,8 +8,8 @@ import csv
 from collections import Counter
 from utils import list_to_dict, detok, judge_ans_parse, dict_key_to_tuple, qa_parsing
 from metrics import qa_f1_score
+import json
 
-# qa_header = ['benchmark_name', 'accuracy', 'number_of_correct', 'total_number_of_points']
 qa_header = ['benchmark_name', 'accuracy', 'f1_score', 'number_of_correct', 'total_number_of_points']
 mqa = ['longbook_choice_eng', 'meetingqa_4k', 'meetingqa_16k', 'paperqa_4k', 'paperqa_16k', 'tpo', 'quality', 'coursera', 'muld_CAC']
 
@@ -22,8 +22,8 @@ def get_accuracy(retriever, eval_data_path, threshold, scenario, generator, tria
     directory_path = f'{retriever}MambaRetriever{generator}MambaRetriever{threshold}MambaRetriever{scenario}MambaRetriever{trial}'
 
     print('loading eval data........')
-    with open(eval_data_path, 'rb') as f:
-        eval_data = pickle.load(f)
+    with open(eval_data_path, 'r') as f:
+        eval_data = json.load(f)
     print('eval data loaded')
 
     # assert len(eval_data) == 41

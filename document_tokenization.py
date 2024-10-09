@@ -344,9 +344,9 @@ def transform_to_dict(dataset):
     for doc_id in dataset:
         new_dict[doc_id] = {}
         for ind in range(len(dataset[doc_id])):        
-            new_dict[doc_id][f'chunk_{ind}'] = {}
-            new_dict[doc_id][f'chunk_{ind}']['tokenized_sents'] = dataset[doc_id][ind][0]
-            new_dict[doc_id][f'chunk_{ind}']['all_input_ids'] = dataset[doc_id][ind][1]
+            new_dict[str(doc_id)][f'chunk_{ind}'] = {}
+            new_dict[str(doc_id)][f'chunk_{ind}']['tokenized_sents'] = dataset[doc_id][ind][0]
+            new_dict[str(doc_id)][f'chunk_{ind}']['all_input_ids'] = dataset[doc_id][ind][1]
 
     return new_dict
 
@@ -423,4 +423,4 @@ if __name__ == "__main__":
     mydict = main()
 
     with open(args.output_path,'w') as f:
-        pickle.dump(mydict,f)
+        json.dump(mydict,f)

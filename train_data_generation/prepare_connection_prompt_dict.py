@@ -2,13 +2,11 @@ import argparse
 import pickle
 from tqdm import tqdm
 import re
-from transformers import AutoTokenizer
 import multiprocessing
 import concurrent.futures
-from tqdm import tqdm
 import random
 import os
-from transformers import AutoTokenizer, TrainingArguments
+from transformers import AutoTokenizer
 from string import punctuation
 import re
 

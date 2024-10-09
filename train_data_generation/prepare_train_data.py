@@ -10,6 +10,19 @@ tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
 from string import punctuation
 import re
 from math import *
+import argparse
+import json
+
+def remove_special_characters(text):
+    cleaned_text = ""
+    for char in text:
+        if char.isalnum() or char.isspace() or char in punctuation:
+            cleaned_text += char
+        else:
+            cleaned_text += " "
+    cleaned_text = re.sub(r'[^\S ]+', ' ', cleaned_text)
+    cleaned_text = re.sub(r'[ ]+', ' ', cleaned_text)
+    return cleaned_text.strip()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -90,6 +103,7 @@ if __name__ == "__main__":
             key2parts[(k, selected_idx, tuple(combined_chunk_indices))] = (chunk1_indices, chunk2_indices)
         
     updated_synthetic_data = []
+    key2range = {}
     for k in tqdm(collected_results):
         datapoint_id, selected_idx, combined_chunk_indices = ast.literal_eval(k)
 
@@ -164,6 +178,10 @@ if __name__ == "__main__":
         datapoint['important_sentence_indices'] = imp_sent_indices
         
         updated_synthetic_data.append(datapoint)
+
+        if datapoint['datapoint_id'] not in key2range:
+            key2range[datapoint['datapoint_id']] = []
+        key2range[datapoint['datapoint_id']].append(datapoint['connection_range'])
         
     random.shuffle(updated_synthetic_data)
     
@@ -181,5 +199,6 @@ if __name__ == "__main__":
 
     print(f"Length of data_without_duplication: {len(data_without_duplication)}")
     print(f"Writing data_without_duplication to {args.train_data_output_path}")
-    with open(args.train_data_output_path, 'wb') as f:
-        pickle.dump(data_without_duplication, f)
+    with open(args.train_data_output_path, 'w') as f:
+        for item in data_without_duplication:
+            f.write(json.dumps(item) + '\n')

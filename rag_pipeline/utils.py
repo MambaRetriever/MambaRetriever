@@ -11,7 +11,7 @@ def get_top_k_indices(logits, k):
     sorted_index2logit = sorted(index2logit.items(), key = lambda x: x[1], reverse = True)
 
     if k < 1:
-        percentage = math.ceil(len(sentences)*k)
+        percentage = math.ceil(len(logits)*k)
         k = max(10, percentage)
     else:
         if isinstance(k, float):

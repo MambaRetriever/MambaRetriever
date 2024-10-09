@@ -10,6 +10,7 @@ tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
 from string import punctuation
 import re
 from math import *
+import argparse
 
 
 def remove_special_characters(text):
@@ -30,7 +31,7 @@ if __name__ == "__main__":
     parser.add_argument("--prompt_output_path", type=str)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--tokenizer", type=str, default="EleutherAI/gpt-neox-20b")
-    parseradd_argument("--question_collected_results_path", type=str)
+    parser.add_argument("--question_collected_results_path", type=str)
     parser.add_argument("--key2question_output_path", type=str)
     args = parser.parse_args()
     
