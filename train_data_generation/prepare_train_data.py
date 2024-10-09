@@ -134,7 +134,10 @@ if __name__ == "__main__":
 
         imp_sent_indices = [combined_chunk_indices[idx] for idx in tmp_imp_sent_indices]
 
-        first_chunk, second_chunk = key2parts[ast.literal_eval(k)]
+        eval_k = ast.literal_eval(k)
+        if eval_k not in key2parts:
+            continue
+        first_chunk, second_chunk = key2parts[eval_k]
         first_chunk_flag, second_chunk_flag = False, False
 
         for imp_idx in imp_sent_indices:
