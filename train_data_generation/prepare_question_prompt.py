@@ -48,7 +48,8 @@ if __name__ == "__main__":
     updated_synthetic_data = {}
     for k in tqdm(collected_results):
         datapoint_id, box_range, text_range = ast.literal_eval(k)
-
+        if datapoint_id not in synthetic_data:
+            continue
         output = collected_results[k]
 
         connect_index_pattern = r'\*\*Index ([\d]+)[\*\*]*'
@@ -91,6 +92,7 @@ if __name__ == "__main__":
             if b_id in text_chunk_indices:
                 continue
             shiftedidx2originalidx[counter] = b_id
+            counter+=1
 
         connect_indices = [int(index) for index in connect_indices]
 
