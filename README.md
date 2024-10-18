@@ -82,6 +82,7 @@ We explain the arguments as follows:
   * `gritlm`,`openai_embedding`, `bm25`, `contriever`, `dragon`: Evaluate results for corresponding models
 * `eval_data_path`: The path to the evaluation dataset
 * `threshold`: The number of sentences or chunks to retrieve
+* `generator`: The model used to generate the answer, e.g. `gpt-4o-2024-08-06`,`meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo`.
 * `scenario`: Choose from:
   * `retrieval`: Used for RAG
   * `full_context`: Used to evaluate LLMs given full context
