@@ -1,20 +1,7 @@
-# TURN YOUR STATE SPACE MODEL INTO A RETRIEVER
+# Single-Pass Document Scanning for Question Answering
 
 ## Paper Overview
-We present a novel method for long document understanding, leveraging the
-Mamba architecture’s linear complexity processing capabilities. Our model, finetuned
-from a Mamba language model checkpoint, processes queries in the full
-document context, enabling more accurate retrieval. To address the scarcity
-of long-context retrieval data, we explore synthetic data generation techniques,
-finding link-based generation most effective. Our 130M model, paired with an
-LLM generator, outperforms the best open-source embedding-based retriever,
-which is more than 50 times larger. On documents with more than 256k tokens,
-the 1.3B model demonstrates comparable performance to GPT-4o. These
-results, evaluated on 41 QA benchmarks drawn from financial reports, government
-documents, and creative works, demonstrate our model’s potential for improving
-long document understanding in resource-constrained environments. Our
-approach paves the way for more efficient processing of complex documents
-across various fields.
+Handling extremely large documents for question answering is challenging: chunk-based embedding methods often lose track of important global context, while full-context transformers can be prohibitively expensive for hundreds of thousands of tokens. We propose a single-pass document scanning approach that processes the entire text in linear time, preserving global coherence while deciding which sentences are most relevant to the query. On 41 QA benchmarks, our single-pass scanner consistently outperforms chunk-based embedding methods and competes with large language models at a fraction of the computational cost. By conditioning on the entire preceding context without chunk breaks, the method preserves global coherence, which is especially important for long documents. Overall, single-pass document scanning offers a simple solution for question answering over massive text.
 
 ## Datasets
 Our training and evaluation dataset is freely and publicly available at [zenodo](https://zenodo.org/records/13900121?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjBjN2I2MGNlLTRkYzgtNDJmNS1iYTQ1LWVjNjUyMjFlMzhjMCIsImRhdGEiOnt9LCJyYW5kb20iOiI5MGNhMTViMDMyNTRjY2U2ZTBlNjVlNDJmODcxM2JlYyJ9.6Nwi0FdA35kHBYiAndany3O47vDLGBbvj7M3SmASbmE_rKtJgzPyk01glzBgb-8xxwEdX5usgn4HQB6F4AIPzQ) and [huggingface](https://huggingface.co/datasets/MambaRetriever/MambaRetriever).
