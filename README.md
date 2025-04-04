@@ -39,7 +39,7 @@ pip install causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86
 ```
 
 ## Model Checkpoints
-Our model checkpoints are available at [Hugging Face](https://huggingface.co/MambaRetriever): `MambaRetriever/mambaretriever-130m`, `MambaRetriever/mambaretriever-1.3b`.
+Our model checkpoints are available at [Hugging Face](https://huggingface.co/MambaRetriever): `MambaRetriever/SPScanner-130m`, `MambaRetriever/SPScanner-1.3b`.
 
 Our evaluation script will automatically load these checkpoints.
 
