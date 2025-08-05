@@ -200,15 +200,53 @@ class MambaTrainer(Trainer):
             with open(f"{output_dir}/config.json", 'w') as f:
                 json.dump(self.model.config.__dict__, f, indent=4)
                 
-    def _load_from_checkpoint(self, model=None, load_bf16=False, model_path=None):
-        # Load model state dict from huggingface checkpoint
-        state_dict = AutoModel.from_pretrained(model_path).state_dict()
+    def _load_from_checkpoint(self, load_bf16=False, model_path=None):
+        """Load model checkpoint from URL or local path into self.model"""
 
+        # Map model paths to their URLs
+        model_urls = {
+            "MambaRetriever/SPScanner-130m": "https://huggingface.co/MambaRetriever/SPScanner-130m/resolve/main/pytorch_model.bin",
+            "MambaRetriever/SPScanner-1.3b": "https://huggingface.co/MambaRetriever/SPScanner-1.3b/resolve/main/pytorch_model.bin",
+        }
+
+        if model_path in model_urls:
+            # Load from URL
+            checkpoint_url = model_urls[model_path]
+            print(f"Loading checkpoint from URL: {checkpoint_url}")
+            state_dict = torch.hub.load_state_dict_from_url(
+                checkpoint_url, map_location="cpu"
+            )
+
+        elif os.path.exists(model_path):
+            # Load from local path
+            checkpoint_file = os.path.join(model_path, "pytorch_model.bin")
+            if not os.path.exists(checkpoint_file):
+                raise FileNotFoundError(f"No pytorch_model.bin found in {model_path}")
+
+            print(f"Loading checkpoint from local file: {checkpoint_file}")
+            state_dict = torch.load(checkpoint_file, map_location="cpu")
+
+        else:
+            raise ValueError(f"Unknown model path: {model_path}")
+
+        # Convert to bfloat16 if requested
         if load_bf16:
-            state_dict = {k: v.to(torch.bfloat16) for k, v in state_dict.items()}
-        load_result = model.load_state_dict(state_dict, False)
-        # release memory
+            state_dict = {
+                k: v.to(torch.bfloat16) if v.dtype.is_floating_point else v
+                for k, v in state_dict.items()
+            }
+
+        # Load into self.model instead of model parameter
+        if self.model is None:
+            raise ValueError(
+                "self.model is None. Make sure the trainer has a model initialized."
+            )
+
+        load_result = self.model.load_state_dict(state_dict, strict=False)
+
+        # Clean up memory
         del state_dict
+
         self._issue_warnings_after_load(load_result)
 
 def sliding_window(input_ids_without_question, question_ids, end_sentence_indices, window_size):
