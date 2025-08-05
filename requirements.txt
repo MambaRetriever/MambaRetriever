@@ -1,5 +1,7 @@
+numpy==1.26.3
 pytz==2024.1
 scipy==1.14.0
 matplotlib==3.9.1
 tiktoken==0.7.0
 wandb==0.17.0
+transformers==4.44.2
