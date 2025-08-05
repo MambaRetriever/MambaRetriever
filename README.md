@@ -23,13 +23,17 @@ pip install -r requirements.txt
 pip3 install torch==2.1.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install accelerate -U
 cd mamba
-pip install .
+pip install --no-build-isolation git+https://github.com/state-spaces/mamba.git
 ```
 
 Next, download and install the following two files from https://github.com/state-spaces/mamba/releases and https://github.com/Dao-AILab/causal-conv1d/releases:
 ```
 mamba_ssm-2.2.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+```
+```
+wget https://github.com/state-spaces/mamba/releases/download/v2.2.2/mamba_ssm-2.2.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+wget https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.4.0/causal_conv1d-1.4.0+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 ```
 
 You can install them using
