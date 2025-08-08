@@ -4,8 +4,7 @@
 
 <p class="authors" style="font-family: serif; font-size: 16px; line-height: 1.4;">
   <b>
-    Weili Cao<sup>*</sup>, Jianyou Wang<sup>*</sup>, Youze Zheng<sup>*</sup>, 
-    Longtian Bao<sup>1*</sup>, Qirui Zheng, <br>
+    Weili Cao<sup>*</sup>, Jianyou Wang<sup>*</sup>, Youze Zheng<sup>*</sup>, Longtian Bao<sup>*</sup>, Qirui Zheng,<br>
     Taylor Berg-kirkpatrick, Ramamohan Paturi<sup>+</sup>, Leon Bergen<sup>+</sup>
   </b>
 </p>
