@@ -1,6 +1,31 @@
-# Single-Pass Document Scanning for Question Answering
 
-## Paper Overview
+<div align="center">
+<h1>Single-Pass Document Scanning for Question Answering (COLM 2025)</h1>
+
+Weili Cao<sup>\*</sup>&nbsp; Jianyou Wang<sup>\*</sup>&nbsp; Youze Zheng<sup>\*</sup>&nbsp; Longtian Bao<sup>\*</sup>&nbsp; Qirui Zheng&nbsp; Taylor Berg-kirkpatrick&nbsp; Ramamohan Paturi<sup>+</sup>&nbsp; Leon Bergen<sup>+</sup>
+
+Laboratory for Emerging Intelligence (LEI)
+
+CSE Department, University of California, San Diego
+
+La Jolla, CA 92093
+
+[![COLM 2025](https://img.shields.io/badge/COLM-2025-purple.svg)](https://colmweb.org/)&nbsp; [![arXiv](https://img.shields.io/badge/arXiv-2504.03101-<COLOR>.svg)](https://arxiv.org/abs/2504.03101)
+
+</div>
+
+## Table of Contents
+* [Abstract](#abstract)
+* [Dataset](#datasets)
+* [Setup](#setup)
+* [Model Checkpoints](#model-checkpoints)
+* [Evaluation](#evaluation)
+  * [Evaluation Data Structure](#evaluation-data-strucutre)
+* [Training](#training)
+* [Synthetic Data Generation](#synthetic-data-generation)
+* [License](#license)
+
+## Abstract
 Handling extremely large documents for question answering is challenging: chunk-based embedding methods often lose track of important global context, while full-context transformers can be prohibitively expensive for hundreds of thousands of tokens. We propose a single-pass document scanning approach that processes the entire text in linear time, preserving global coherence while deciding which sentences are most relevant to the query. On 41 QA benchmarks, our single-pass scanner consistently outperforms chunk-based embedding methods and competes with large language models at a fraction of the computational cost. By conditioning on the entire preceding context without chunk breaks, the method preserves global coherence, which is especially important for long documents. Overall, single-pass document scanning offers a simple solution for question answering over massive text.
 
 ## Datasets
@@ -190,3 +215,9 @@ python generation/generation.py --prompt_path [prompt_path] --output_path [outpu
 * `output_path`: The path to save the LLM generation result.
 * `generation_model`: The model used for generation.
 * `max_tokens`: The maximum output token for the LLM generation.
+
+## License
+
+The code in this project is licensed under the MIT license.
+
+The dataset is under a CC-BY-NC license.
