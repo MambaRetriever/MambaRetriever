@@ -2,7 +2,7 @@
 <div align="center">
 <h1>Single-Pass Document Scanning for Question Answering (COLM 2025)</h1>
 
-Weili Cao<sup>\*</sup>&nbsp; Jianyou Wang<sup>\*</sup>&nbsp; Youze Zheng<sup>\*</sup>&nbsp; Longtian Bao<sup>\*</sup>&nbsp; Qirui Zheng&nbsp; Taylor Berg-kirkpatrick&nbsp; Ramamohan Paturi<sup>+</sup>&nbsp; Leon Bergen<sup>+</sup>
+Weili Cao<sup>\*</sup>&nbsp; Jianyou Wang<sup>\*</sup>&nbsp; Youze Zheng<sup>\*</sup>&nbsp; Longtian Bao<sup>\*</sup>&nbsp; Qirui Zheng&nbsp; <br>Taylor Berg-kirkpatrick&nbsp; Ramamohan Paturi<sup>+</sup>&nbsp; Leon Bergen<sup>+</sup>
 
 Laboratory for Emerging Intelligence (LEI)
 
