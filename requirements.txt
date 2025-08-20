@@ -5,3 +5,5 @@ matplotlib==3.9.1
 tiktoken==0.7.0
 wandb==0.17.0
 transformers==4.44.2
+accelerate==1.8.1
+gdown==5.2.0
